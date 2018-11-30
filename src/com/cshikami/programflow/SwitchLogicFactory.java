@@ -1,3 +1,4 @@
+package com.cshikami.programflow;
 import java.util.Scanner;
 
 public class SwitchLogicFactory implements IManagingProgramFlowFactory {

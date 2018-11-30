@@ -1,3 +1,4 @@
+package com.cshikami.calculator;
 import java.util.Scanner;
 
 public class SimpleCalculatorFactory implements ICalculator {

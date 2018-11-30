@@ -1,4 +1,17 @@
+package com.cshikami;
+
 import java.util.Scanner;
+
+import com.cshikami.calculator.ICalculator;
+import com.cshikami.calculator.SimpleCalculatorFactory;
+import com.cshikami.exceptionHandling.ExceptionHandlingAndDebugging;
+import com.cshikami.exceptionHandling.IExceptionHandlingAndDebugging;
+import com.cshikami.looping.BackwardsLoopingFactory;
+import com.cshikami.looping.ForwardLoopingFactory;
+import com.cshikami.looping.ILoopingFactory;
+import com.cshikami.programflow.ConditionalLogicFactory;
+import com.cshikami.programflow.IManagingProgramFlowFactory;
+import com.cshikami.programflow.SwitchLogicFactory;
 
 public class ModuleFacade {
 
@@ -13,8 +26,7 @@ public class ModuleFacade {
 		IExceptionHandlingAndDebugging exceptionHandlingAndDebugging = new ExceptionHandlingAndDebugging();
 		IManagingProgramFlowFactory managingProgramFlowFactory = null; //Abstract Factory pattern
 		ICalculator calculatorFactory = null; //Abstract Factory pattern
-
-
+		ILoopingFactory loopingFactory = null; //Abstract Factory pattern
 
 		Scanner scanner = new Scanner(System.in);
 		boolean askAgain = true;
@@ -25,6 +37,8 @@ public class ModuleFacade {
 					+ "2: ManagingProgramFlowConditionalLogic\n"
 					+ "3: ManagingProgramFlowSwitchStatement\n"
 					+ "4: SimpleCalculatorCalc\n"
+					+ "5: ForwardLooping\n"
+					+ "6: BackwardsLooping\n"
 					+ "or press q to quit."
 					);
 			String userInput = scanner.nextLine();
@@ -46,6 +60,14 @@ public class ModuleFacade {
 			case "4":
 				calculatorFactory = new SimpleCalculatorFactory(); //abstract factory pattern
 				calculatorFactory.calculate();
+				break;
+			case "5":
+				loopingFactory = new ForwardLoopingFactory();
+				loopingFactory.createLoop();
+				break;
+			case "6":
+				loopingFactory = new BackwardsLoopingFactory();
+				loopingFactory.createLoop();
 				break;
 			case "q":
 				askAgain = false;

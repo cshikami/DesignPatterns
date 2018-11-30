@@ -1,3 +1,5 @@
+package com.cshikami;
+
 import java.util.Scanner;
 
 public class Main {
