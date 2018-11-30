@@ -21,7 +21,7 @@ public class ForwardLoopingFactory implements ILoopingFactory {
 
 	public void createLoop() {
 
-		System.out.println("Enter option (1: incrementing loop, 2: for-each loop):");
+		System.out.println("Enter option (1: incrementing loop, 2: for-each loop, 3: while loop, 4: do-while loop):");
 
 		Scanner scanner = new Scanner(System.in);
 		String userInput = scanner.nextLine();
@@ -40,6 +40,20 @@ public class ForwardLoopingFactory implements ILoopingFactory {
 					System.out.println(month);
 				}
 				break;
+			case "3":
+				System.out.println("While loop:");
+				int whileLoopCounter = 0;
+				while(whileLoopCounter < months.length) {
+					System.out.println(months[whileLoopCounter]);
+					whileLoopCounter++;
+				}
+			case "4":
+				System.out.println("Do-While loop:");
+				int doWhileLoopCounter = 0;
+				do {
+					System.out.println(months[doWhileLoopCounter]);
+					doWhileLoopCounter++;
+				} while (doWhileLoopCounter < months.length);
 			}
 
 		} catch (Exception e){
