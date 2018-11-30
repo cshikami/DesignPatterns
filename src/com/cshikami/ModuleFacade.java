@@ -9,6 +9,7 @@ import com.cshikami.exceptionHandling.IExceptionHandlingAndDebugging;
 import com.cshikami.looping.BackwardsLoopingFactory;
 import com.cshikami.looping.ForwardLoopingFactory;
 import com.cshikami.looping.ILoopingFactory;
+import com.cshikami.overloadingMethodWithDifferentSignatures.AddValues;
 import com.cshikami.programFlow.ConditionalLogicFactory;
 import com.cshikami.programFlow.IManagingProgramFlowFactory;
 import com.cshikami.programFlow.SwitchLogicFactory;
@@ -16,9 +17,11 @@ import com.cshikami.programFlow.SwitchLogicFactory;
 public class ModuleFacade {
 
 	private IExceptionHandlingAndDebugging exceptionHandlingAndDebugging; //facade pattern
+	private AddValues addValues;
 
 	public ModuleFacade() {
 		this.exceptionHandlingAndDebugging = new ExceptionHandlingAndDebugging(); //facade pattern
+		this.addValues = new AddValues();
 	}
 
 	public void userInputControlFlow() {
@@ -27,6 +30,7 @@ public class ModuleFacade {
 		IManagingProgramFlowFactory managingProgramFlowFactory = null; //Abstract Factory pattern
 		ICalculator calculatorFactory = null; //Abstract Factory pattern
 		ILoopingFactory loopingFactory = null; //Abstract Factory pattern
+		AddValues addValues = new AddValues();
 
 		Scanner scanner = new Scanner(System.in);
 		boolean askAgain = true;
@@ -39,6 +43,7 @@ public class ModuleFacade {
 					+ "4: SimpleCalculatorCalc\n"
 					+ "5: ForwardLooping\n"
 					+ "6: BackwardsLooping\n"
+					+ "7: AddValues\n"
 					+ "or press q to quit."
 					);
 			String userInput = scanner.nextLine();
@@ -68,6 +73,10 @@ public class ModuleFacade {
 			case "6":
 				loopingFactory = new BackwardsLoopingFactory();
 				loopingFactory.createLoop();
+				break;
+			case "7":
+				addValues = new AddValues();
+				addValues.getValues();
 				break;
 			case "q":
 				askAgain = false;
