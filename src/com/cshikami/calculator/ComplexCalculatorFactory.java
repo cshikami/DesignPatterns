@@ -1,4 +1,4 @@
-package com.cshikami;
+package com.cshikami.calculator;
 
 import java.util.Scanner;
 
