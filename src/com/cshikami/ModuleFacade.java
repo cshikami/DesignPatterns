@@ -44,7 +44,8 @@ public class ModuleFacade {
 					+ "5: ForwardLooping\n"
 					+ "6: BackwardsLooping\n"
 					+ "7: AddValues\n"
-					+ "or press q to quit."
+					+ "8: ComplexCalculator\n"
+					+ "q: Quit"
 					);
 			String userInput = scanner.nextLine();
 
@@ -77,6 +78,10 @@ public class ModuleFacade {
 			case "7":
 				addValues = new AddValues();
 				addValues.getValues();
+				break;
+			case "8":
+				calculatorFactory = new ComplexCalculatorFactory();
+				calculatorFactory.calculate();
 				break;
 			case "q":
 				askAgain = false;
