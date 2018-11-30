@@ -1,4 +1,4 @@
-package com.cshikami.programflow;
+package com.cshikami.programFlow;
 
 import java.util.Scanner;
 

@@ -9,9 +9,9 @@ import com.cshikami.exceptionHandling.IExceptionHandlingAndDebugging;
 import com.cshikami.looping.BackwardsLoopingFactory;
 import com.cshikami.looping.ForwardLoopingFactory;
 import com.cshikami.looping.ILoopingFactory;
-import com.cshikami.programflow.ConditionalLogicFactory;
-import com.cshikami.programflow.IManagingProgramFlowFactory;
-import com.cshikami.programflow.SwitchLogicFactory;
+import com.cshikami.programFlow.ConditionalLogicFactory;
+import com.cshikami.programFlow.IManagingProgramFlowFactory;
+import com.cshikami.programFlow.SwitchLogicFactory;
 
 public class ModuleFacade {
 
