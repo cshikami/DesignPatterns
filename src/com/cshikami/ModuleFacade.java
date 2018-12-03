@@ -5,6 +5,8 @@ import java.util.Scanner;
 import com.cshikami.calculator.ComplexCalculatorFactory;
 import com.cshikami.calculator.ICalculator;
 import com.cshikami.calculator.SimpleCalculatorFactory;
+import com.cshikami.dataCollections.IDataCollectionsFactory;
+import com.cshikami.dataCollections.SimpleArraysFactory;
 import com.cshikami.exceptionHandling.ExceptionHandlingAndDebugging;
 import com.cshikami.exceptionHandling.IExceptionHandlingAndDebugging;
 import com.cshikami.looping.BackwardsLoopingFactory;
@@ -32,6 +34,7 @@ public class ModuleFacade {
 		ICalculator calculatorFactory = null; //Abstract Factory pattern
 		ILoopingFactory loopingFactory = null; //Abstract Factory pattern
 		AddValues addValues = new AddValues();
+		IDataCollectionsFactory dataCollectionsFactory = null; //Abstract Factory pattern
 
 		Scanner scanner = new Scanner(System.in);
 		boolean askAgain = true;
@@ -46,6 +49,9 @@ public class ModuleFacade {
 					+ "6: BackwardsLooping\n"
 					+ "7: AddValues\n"
 					+ "8: ComplexCalculator\n"
+					+ "9: UsingSimpleArrays\n"
+					+ "10: Using Two-Dimensional Arrays\n"
+					+ "11: Using Other Data Collections\n"
 					+ "q: Quit"
 					);
 			String userInput = scanner.nextLine();
@@ -83,6 +89,18 @@ public class ModuleFacade {
 			case "8":
 				calculatorFactory = new ComplexCalculatorFactory();
 				calculatorFactory.calculate();
+				break;
+			case "9":
+				dataCollectionsFactory = new SimpleArraysFactory();
+				dataCollectionsFactory.showDataCollection();
+				break;
+			case "10":
+				dataCollectionsFactory = new TwoDimensionalArraysFactory();
+				dataCollectionsFactory.showDataCollection();
+				break;
+			case "11":
+				dataCollectionsFactory = new OtherDataCollections();
+				dataCollectionsFactory.showDataCollection();
 				break;
 			case "q":
 				askAgain = false;

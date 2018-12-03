@@ -3,6 +3,7 @@ package com.cshikami.calculator;
 import java.util.Scanner;
 
 import com.cshikami.calculator.ICalculator;
+import com.cshikami.calculator.utilities.MathHelper;
 
 public class ComplexCalculatorFactory implements ICalculator {
 
@@ -10,32 +11,39 @@ public class ComplexCalculatorFactory implements ICalculator {
 	public void calculate() {
 		System.out.println("You are in the ComplexCalculator calculate method.");
 
-		Scanner scanner = new Scanner(System.in);
-
-		System.out.print("Enter a numeric value: ");
-		String input = scanner.nextLine();
-
-		System.out.print("Enter a numeric value: ");
-		String input2 = scanner.nextLine();
+		//one way of getting user input
+//		Scanner scanner = new Scanner(System.in);
+//
+//		System.out.print("Enter a numeric value: ");
+//		String input = scanner.nextLine();
+//
+//		System.out.print("Enter a numeric value: ");
+//		String input2 = scanner.nextLine();
+//		
+//		System.out.println("Choose an operation (+ - * /): ");
+//		String operator = scanner.nextLine();
 		
-		System.out.println("Choose an operation (+ - * /): ");
-		String operator = scanner.nextLine();
+		InputHelper helper = new InputHelper();
+		
+		String input = helper.getInput("Enter a numeric value: ");
+		String input2 = helper.getInput("Enter a numeric value: ");
+		String operator = helper.getInput("Choose an operation (+ - * /): ");
 		
 		double result = 0;
 		
 		try {
 			switch(operator) {
 			case "+":
-				result = addValues(input, input2);
+				result = MathHelper.addValues(input, input2);
 				break;
 			case "-":
-				result = subtractValues(input, input2);
+				result = MathHelper.subtractValues(input, input2);
 				break;
 			case "*":
-				result = multiplyValues(input, input2);
+				result = MathHelper.multiplyValues(input, input2);
 				break;
 			case "/":
-				result = divideValues(input, input2);
+				result = MathHelper.divideValues(input, input2);
 				break;
 			default:
 				System.out.println("Not an operator.");
@@ -49,24 +57,17 @@ public class ComplexCalculatorFactory implements ICalculator {
 		}
 	}
 	
-	static double addValues(String input, String input2) {
-		double result = Double.parseDouble(input) + Double.parseDouble(input2);
-		return result;
+	class InputHelper { //nested class
+		
+		private String getInput(String prompt) { //another way of getting user input
+			System.out.println(prompt);
+			Scanner sc = new Scanner(System.in);
+			return sc.nextLine();
+			
+		}
+		
 	}
 	
-	static double subtractValues(String input, String input2) {
-		double result = Double.parseDouble(input) - Double.parseDouble(input2);
-		return result;
-	}
 	
-	static double multiplyValues(String input, String input2) {
-		double result = Double.parseDouble(input) * Double.parseDouble(input2);
-		return result;
-	}
-	
-	static double divideValues(String input, String input2) {
-		double result = Double.parseDouble(input) / Double.parseDouble(input2);
-		return result;
-	}
 	
 }
